@@ -1,0 +1,61 @@
+{% import "macros/loading.html" as loading_macro %}
+{% import "macros/nav.html" as nav_macro %}
+{% import "macros/search_footer.html" as search_footer_macro %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="个人博客，分享生活 &#9885;墨璃暮湮·芳塔洛斯&#10031;的个人博客 努力奔跑，为了追上那个曾被寄予厚望的自己">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=2.0">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <link rel="Shortcut Icon" href=/img/icon/logo.png>
+    {%- block rss %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href={{ get_url(path="atom.xml", trailing_slash=false) }}>
+    {% endblock rss -%}
+    <!-- 基本css -->
+    <link rel="stylesheet" href={{ get_url(path="css/basic/basic.css") | safe }}>
+    <!-- 主页基本css -->
+    <link rel="stylesheet" href={{ get_url(path="css/page/index-basic.css") | safe }}>
+    <!--loading组件与background组件-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <!--snow组件-->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src={{ get_url(path="/js/snow.js") | safe }}></script>
+    <!-- 返回顶部 -->
+    <script src={{ get_url(path="/js/nav.js") | safe }}></script>
+    <!-- 页脚飞鱼 -->
+    <script src={{ get_url(path="/js/fish.js") | safe }}></script>
+    {%- block head %} {% endblock head -%}
+</head>
+
+<body>
+    <header>
+        {{- search_footer_macro::search() -}}
+    </header>
+    <nav>
+        <!-- 导航栏 -->
+        {{- nav_macro::nav() -}}
+    </nav>
+    <aside>
+
+    </aside>
+    <main>
+        {%- block main %} {% endblock main -%}
+    </main>
+    <!-- 分页 -->
+    {%- block paginator %} {% endblock paginator -%}
+    <!--snow雪花组件-->
+    <div id="snow"></div>
+    <!--loading组件-->
+    <div class="loading" id="loading">
+        {{- loading_macro::loading() -}}
+        {%- block loading %}
+        {% endblock loading -%}
+    </div>
+    <footer>
+        {{- search_footer_macro::footer() -}}
+    </footer>
+</body>
+
+</html>

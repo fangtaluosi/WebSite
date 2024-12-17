@@ -1,0 +1,45 @@
+/* 主页基本样式与整体页面布局 */
+* {
+    margin: 0;
+    padding: 0;
+    /* 防止padding撑大盒子 */
+    box-sizing: border-box;
+}
+
+ul{
+    list-style:none
+}
+
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+    grid-template-columns: 300px 2fr 1fr;
+    grid-template-rows: 350px auto 200px;
+}
+header {
+    grid-area: header;
+}
+nav{
+    grid-area: nav;
+}
+main {
+    grid-area: main;
+    min-height: 560px;
+}
+aside {
+    grid-area: aside;
+}
+footer {
+    grid-area: footer;
+}
+
+// 侧边栏
+@import "_search";
+// 导航栏
+@import "_nav";
+// 页脚
+@import "_footer";

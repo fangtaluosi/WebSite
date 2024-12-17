@@ -1,0 +1,118 @@
+@import 'loading-door';
+
+.loading .wrapper {
+    position: absolute;
+    display:grid;
+    top: calc(50% - 125px);
+    left: calc(50% - 125px);
+    -webkit-box-reflect: below 0 linear-gradient(transparent,transparent,80%,rgba(255,255,255,0.3));
+}
+
+// 整体
+.loading span {
+    position: relative;
+    width:250px;
+    height: 250px;
+    background:#f1f1f1;
+    border: 6px solid #f1f1f1;
+    border-radius: 50%;
+    box-shadow: -8px -8px 15px rgba(255,255,255,1),
+        8px 8px 25px rgba(0, 0, 0, 0.15)
+}
+
+// 内凹阴影
+.loading span::before{
+    content:'';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 10px 10px 20px rgba(0,0,0,0.5),
+        inset -5px -5px 15px rgba(255,255,255,1);
+}
+
+// 内圈
+.loading span::after{
+    content:'';
+    position: absolute;
+    inset: 40px;
+    background: #f1f1f1;
+    border: 3px solid #f1f1f1;
+    border-radius: 50%;
+    box-shadow: -8px -8px 25px rgba(255,255,255,1),
+        8px 8px 25px rgba(0,0,0,0.25),
+        inset 3px 3px 10px rgba(0,0,0,0.15),
+        inset -1px -1px 15px rgba(255,255,255,1);
+}
+
+// 彩虹圈
+.loading span i{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    filter: blur(5px);
+    background: linear-gradient(#ff4f8b,#ffeb3b,#00EDD4,#42abff);
+    animation: cricle 0.5s linear infinite;
+}
+
+@keyframes cricle{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+// 火箭与云
+.loading .rocket {
+    position: absolute;
+    inset: 50px;
+    z-index: 10;
+    display:grid;
+    border-radius: 50%;
+    align-items: center;
+    justify-items: center;
+    // 藏起出去的云
+    overflow: hidden;
+}
+
+// 火箭
+.loading .rocket .icon-huojian{
+    position: absolute;
+    color: #63b8fa;
+    font-size: 3.5rem;
+    // 黑色轮廓线
+    -webkit-text-stroke: 2px #000;
+    animation: rocket 0.2s linear infinite;
+}
+
+@keyframes rocket{
+    0%,100%{
+        transform: translate(0px,0px) rotate(-45deg);
+    }
+    50%{
+        transform: translate(0px,-3px) rotate(-45deg);
+    }
+}
+
+// 云朵
+.loading .rocket .icon-yun{
+    position: absolute;
+    top: calc(35px *var(--i));
+    left: calc(45px *var(--i));
+    font-size: 3rem;
+    color: #fff;
+    -webkit-text-stroke: 2px #000;
+    animation: cloud 1s linear infinite;
+    // 不同时运动
+    animation-delay: calc(-0.5s *var(--i));
+}
+
+@keyframes cloud{
+    0%{
+        transform: translateY(calc(-35 *5px));
+    }
+    100%{
+        transform: translateY(calc(35 *5px));
+    }
+}

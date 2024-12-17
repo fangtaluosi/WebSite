@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: {{ get_url(path="sitemap.xml") }}
+Disallow:/page/
+Disallow:/resource/

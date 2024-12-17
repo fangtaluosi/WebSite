@@ -1,0 +1,94 @@
+{% macro nav() %}
+<div class="nav-wrap">
+    <div class="nav">
+        <a class="icon" href={{ get_url(path="") }}>
+            <div class="icon-img"><img src={{ get_url(path="img/icon/logo-bg.png") }} alt=""></div>
+            <div class="icon-con">
+                <p>Good day</p>
+                <h2>芳塔洛斯</h2>
+            </div>
+        </a>
+        <div class="nav-line"></div>
+        <div class="title">
+            <p>Page</p>
+        </div>
+        <div class="menu">
+            <a class="item" href={{ get_url(path="") }}>
+                <div class="light"></div>
+                <div class="licon">
+                    <span class="iconfont icon-home_light"></span>
+                </div>
+                <div class="con">Home</div>
+                <div class="ricon">
+                    <span class="iconfont icon-shezhi"></span>
+                </div>
+            </a>
+            <a class="item" href={{ get_url(path="resource") }}>
+                <div class="light"></div>
+                <div class="licon">
+                    <span class="iconfont icon-resource"></span>
+                </div>
+                <div class="con">Resource</div>
+                <div class="ricon"></div>
+            </a>
+            <a class="item" href={{ get_url(path="blog") }}>
+                <div class="light"></div>
+                <div class="licon">
+                    <span class="iconfont icon-ego-blog"></span>
+                </div>
+                <div class="con">Blog</div>
+                <div class="ricon"></div>
+            </a>
+            <a class="item" href={{ get_url(path="about") }}>
+                <div class="light"></div>
+                <div class="licon">
+                    <span class="iconfont icon-about"></span>
+                </div>
+                <div class="con">About</div>
+                <div class="ricon"></div>
+            </a>
+            <a class="item" href={{ get_url(path="tags") }}>
+                <div class="light"></div>
+                <div class="licon">
+                    <span class="iconfont icon-tag"></span>
+                </div>
+                <div class="con">Tags</div>
+                <div class="ricon"></div>
+            </a>
+        </div>
+
+        <div class="nav-line"></div>
+        <div class="title">
+            <p>Sever</p>
+        </div>
+        <div class="serve">
+            <div class="item">
+                <div class="light"></div>
+                <div class="licon">
+                    <span class="iconfont icon-link"></span>
+                </div>
+                <div class="con">Contact</div>
+                <div class="ricon"></div>
+            </div>
+            <div class="item">
+                <div class="light"></div>
+                <div class="licon">
+                    <span class="iconfont icon-yinle"></span>
+                </div>
+                <div class="con">Music</div>
+                <div class="ricon"></div>
+            </div>
+            <a href="javascript:void(0)" id="to-top">
+                <div class="item">
+                    <div class="light"></div>
+                    <div class="licon">
+                        <span class="iconfont icon-xiangshang"></span>
+                    </div>
+                    <div class="con">ToTop</div>
+                    <div class="ricon"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endmacro nav %}

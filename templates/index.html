@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{%- block head %}
+<!-- 卡片 -->
+<link rel="stylesheet" href={{ get_url(path="css/page/card.css") | safe }}>
+{% endblock head -%}
+
+{% block main %}
+<div class="card-wrap">
+    <div class="box">
+        <span></span>
+        <div class="content">
+            <h2>元素周期表</h2>
+            <p>一个动态可视化的元素周期表</p>
+            <a class="link" href="/resource/PTE/" target="_blank">Read More</a>
+        </div>
+    </div>
+    <div class="box">
+        <span></span>
+        <div class="content">
+            <h2>Rust教程</h2>
+            <p>5.3 循环语句</p>
+            <a class="link" href="/resource/course/rust/05/03.html" target="_blank">Read More</a>
+        </div>
+    </div>
+    <div class="box">
+        <span></span>
+        <div class="content">
+            <h2>Card Three</h2>
+            <p>something test</p>
+            <a class="link" href="">Read More</a>
+        </div>
+    </div>
+    <div class="box">
+        <span></span>
+        <div class="content">
+            <h2>Card Three</h2>
+            <p>something test</p>
+            <a class="link" href="">Read More</a>
+        </div>
+    </div>
+</div>
+{% endblock main %}
+
+{%- block loading %}
+    {{- loading_macro::loading1() -}}
+{% endblock loading -%}

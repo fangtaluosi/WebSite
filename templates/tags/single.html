@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% import "macros/page.html" as page_macros %}
+
+{%- block head %}
+<!-- 卡片 -->
+<link rel="stylesheet" href={{ get_url(path="css/page/card.css") | safe }}>
+<!-- tags -->
+<link rel="stylesheet" href={{ get_url(path="css/page/tags.css") | safe }}>
+<!-- 分页 -->
+<link rel="stylesheet" href={{ get_url(path="css/page/pagination.css") | safe }}>
+    {% block rss %}
+    {% set rss_path = "tags/" ~ term.name ~ "/atom.xml" %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{get_url(path=rss_path, trailing_slash=false)}}">
+    {% endblock rss %}
+{% endblock head -%}
+
+{%- block main %}{% set paginate_by = 1 %}
+<div class="tag-wrap">
+    <h1 class="tag-name">Tag: #{{ term.name }}</h1>
+    <a class="to-tags-list" href={{ get_url(path="/tags") }}>Click to all tags</a>
+    <div class="card-wrap">
+        {%- for page in paginator.pages %}{# 由分类法term.pages到分页paginator.pages #}
+        <div class="box">
+            <span></span>
+            <div class="content">
+                <h2>{{ page.title }}</h2>
+                <p>{{page.date}}</p>
+                <a class="link" href="{{ page.permalink | safe }}" target="_blank">Read More</a>
+                {%- if page.taxonomies.tags %}
+                <div class="tags">
+                    {%- for tag in page.taxonomies.tags %}
+                    <a class="tag" href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>
+                    {%- endfor %}
+                </div>
+                {%- endif %}
+            </div>
+        </div>
+        {%- endfor %}
+    </div>
+</div>
+<div class="pagination">{# 分页按钮 #}
+    {% if paginator.previous %}<a class="prev" href="{{ paginator.previous }}">← Previous</a>{% else %}<!--Hidden Previous-Button-->{% endif %}
+    {% if paginator.next %}<a class="next" href="{{ paginator.next }}">Next →</a>{% else %}<!--Hidden Next-Button-->{% endif %}
+</div>
+{% endblock main -%}

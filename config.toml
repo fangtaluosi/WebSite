@@ -1,0 +1,37 @@
+# 域名
+base_url = "https://fangtaluosi.top"
+
+# 标题、描述
+title = "芳塔洛斯"
+description = "个人博客"
+
+# 默认语言
+default_language = "en"
+
+# 压缩html
+# minify_html = true
+
+# 启动sass
+compile_sass = true
+
+# 搜索框
+build_search_index = false
+
+# 生成订阅
+generate_feed = true
+
+feed_filename = "atom.xml"
+
+render_emoji = true
+
+taxonomies = [
+    {name = "tags", feed = true, paginate_by= 10, paginate_path="tags"},
+]
+
+[markdown]
+# 语法高亮
+highlight_code = true
+highlight_theme = "base16-ocean-light"
+
+[extra]
+# 自定义

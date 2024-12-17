@@ -1,0 +1,29 @@
+/* 最基本的css */
+/* 去除超链接下划线 */
+@font-face {
+    font-family: Harmony;
+    src: url(../../font/Harmony.ttf);
+}
+a,p,h1,h2,h3,h4,h5,h6,div,input{
+    font-family: Harmony;
+}
+a {
+    text-decoration: none;
+}
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 12px;
+    background:white;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(transparent,#63b8fa);
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(transparent,#f1e252);
+}
+
+// 背景 包含snow
+@import "_background";
+// 阿里矢量图标
+@import "_iconfont";

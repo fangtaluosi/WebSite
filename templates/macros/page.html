@@ -1,0 +1,17 @@
+{%- macro page_listing(page) %}
+<div class="box">
+    <span></span>
+    <div class="content">
+        <h2>{{ page.title }}</h2>
+        <p>{{page.date}}</p>
+        <a class="link" href="{{ page.permalink | safe }}" target="_blank">Read More</a>
+        {%- if page.taxonomies.tags %}
+        <div class="tags">
+            {%- for tag in page.taxonomies.tags %}
+            <a class="tag" href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>
+            {%- endfor %}
+        </div>
+        {%- endif %}
+    </div>
+</div>
+{%- endmacro page_listing -%}

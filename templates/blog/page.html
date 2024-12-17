@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% import "macros/loading.html" as loading_macro %}
+
+{%- block head %}
+<!-- 文章内容 -->
+<link rel="stylesheet" href={{ get_url(path="css/page/article-content.css") | safe }}>
+<!-- 文章内容调整 -->
+<script src={{ get_url(path="js/article-content.js") | safe }}></script>
+<!-- katex数学渲染 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+    integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js"
+    integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous">
+</script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+    integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+{% endblock head -%}
+
+{% block main %}
+<div class="article-page-wrap">
+    <h1 class="article-title">
+        {{ page.title }}
+    </h1>
+    <p class="article-date"><strong>{{ page.date }}</strong></p>
+    {{ page.content | safe }}
+</div>
+{% endblock main %}
+
+{%- block loading %}
+    {{- loading_macro::loading2() -}}
+{% endblock loading -%}
